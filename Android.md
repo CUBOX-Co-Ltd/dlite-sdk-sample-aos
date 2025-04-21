@@ -1,11 +1,13 @@
----
-description : "Android 세팅 방법 문서"
-last_modified : "2025.04.16"
----
+
+## Android SDK
+Last modified: 2025.04.22 
+
+</br>
+
 
 ## SDK Requirements
-- Android 23+ ( Marshmallow )
-- 해당 SDK는 Java version 1_8 버전에서 설계되었습니다.
+- Android 23+ (Marshmallow)
+- This SDK is designed for Java version_1_8.
   
 ```kotlin
 android {
@@ -28,9 +30,9 @@ android {
 
 <br/> 
 
-## SDK 설정
+## SDK Setup
 
-1. 세 가지의 라이브러리 .aar 파일 **app/libs에** 추가해 주세요. 
+1.	Add the following three **.aar** library files to **app/libs**:
    
     ```kotlin
     secernai-dlite-{version}.aar // core module
@@ -40,7 +42,7 @@ android {
 
 <br/> <br/>
 
-2. **plugins / buildFeatures에** 추가
+2.	Add the following to **plugins / buildFeatures**:
    
     ```kotlin
     plugins {
@@ -52,7 +54,7 @@ android {
 
 <br/> <br/>
 
-3. AndroidX 호환을 위해 **gradle.properties에** 추가해주세요.
+3.	Add the following to **gradle.properties** for AndroidX compatibility:
    
     ```kotlin
     android.enableJetifier=true
@@ -60,7 +62,7 @@ android {
 
 <br/> <br/>
 
-4. **app/build.gradle에** 아래 모듈들을 추가해주세요. ( 외부 라이브러리 의존성 )
+4.	Add the following modules to **app/build.gradle** (external dependencies):
    
     ```kotlin
     dependencies {
@@ -102,7 +104,7 @@ android {
 
 <br/> <br/>
 
-5. **AndroidManifest.xml에** 아래 조건을 추가해주세요.
+5.	Add the following to **AndroidManifest.xml**:
    
     ```kotlin
     <!--  network and camera permission  -->
@@ -115,8 +117,8 @@ android {
 
 <br/> <br/>
 
-## SDK 초기화
-1. <span style="color:red; font-weight:bold;">[!] 초기화 시 setLicenseKey에 라이센스 키를 반드시 넣어주세요.</span>
+## SDK Initialization
+1. <span style="color:red; font-weight:bold;">[!] You must provide a license key in setLicenseKey during initialization.</span>
 
     ```kotlin
     // option build
@@ -150,11 +152,11 @@ android {
 
 </br>
 
-## Activity 사용법
-   1. Activity는 일회성 실행으로 실행 후 결과를 반환하고 종료됩니다.
-   2. 제공되는 기능을 통한 UI 수정이 가능합니다.
-   3. 결과 처리 방식, 성공 - `CameraResult.Result`, 실패 - `CameraResult.Error`
-   4. `LiveCapture`, `FaceRecognition`, `ActiveLiveness` 중 하나의 옵션을 생성하고 `start(option)`로 실행합니다.
+## Activity Usage
+   1. The activity runs once, returns the result, and then terminates.
+   2. You can modify the UI using the provided functions.
+   3. Result handling: Success - `CameraResult.Result`, Failure - `CameraResult.Error`
+   4. Create one of the following options: `LiveCapture`, `FaceRecognition`, or `ActiveLiveness`, then execute with start(option).
 
         ```kotlin
         // val option = LivenessOption.Builder().build()
@@ -177,12 +179,12 @@ android {
 
 </br> </br>
 
-## Fragment 사용법
+## Fragment Usage
 
-   1. Fragment 는 사용자가 종료하기 전까지 계속 사용됩니다.
-   2. Fragment 위에 사용자가 자유롭게 View 를 추가하여 Custom 하여 사용할 수 있습니다.
-   3. 결과 처리 방식, 성공 - `CameraResult.Result`, 실패 - `CameraResult.Error`
-   4. `LiveCaptureFragment`를 생성하고 결과 콜백을 등록하여 사용합니다.
+   1. The fragment remains active until the user explicitly exits it.
+   2. You can freely add and customize views on top of the fragment.
+   3. Result handling: Success - `CameraResult.Result`, Failure - `CameraResult.Error`
+   4. Create a `LiveCaptureFragment` and register a result callback.
 
         ```kotlin
         val cameraFragment = LiveCaptureFragment.newInstance(

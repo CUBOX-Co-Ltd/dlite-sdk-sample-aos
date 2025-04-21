@@ -22,29 +22,12 @@ In the example app, we propose the following three features.
 <br/>
 
 
-## Before getting started. 
-### SDK Requirements.
-
-The minimum requirements for UIKit for Android are:
-
-- Android 6.0 (API level 23) or higher
-- Java 8 or higher
-
-<br/>
-
-#### The Dlite SDK is divided into three modules:
-- cubox-camera-{version} : Handles the camera UI components.
-- cubox-dlite-{version} : Manages the SDK's licensing and core functionalities.
-- cubox-inference-{version} : Responsible for deep learning inference tasks.
-
-<br/>
-
-
-#### 
-
+## How to use
+- [How to use Android SDK](./Android.md)  
 
 
 <br/>
+
 ## If you'd like to use our SDK
 Please get in touch with our operations team to proceed to the next steps. <br/>
 You can reach us at devTeam@cubox.ai <br/> 
